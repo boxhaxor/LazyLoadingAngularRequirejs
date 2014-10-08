@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="angularRocks">
+<head>
+</head>
+<body>
+	<header>
+		<h1>Angular Rocks!  LazyLoading Demo</h1>
+
+		<a href="/foo">foo</a>
+		<a href="/bar">bar</a>
+	</header>
+	<content>
+		<div ui-view></div>
+	</content>
+	
+	<script src="/bower_components/requirejs/require.js"></script>
+	<script>
+		//http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
+		window.name = "NG_DEFER_BOOTSTRAP!";
+
+		require(['require', '/require-config.js', '/libraries.js'], function (require, config) {
+			// load app
+			require(['bootstrap']);
+		});
+	</script>
+</body>
+</html>
